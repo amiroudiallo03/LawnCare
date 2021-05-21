@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from . import models
 # Register your models here.
 @admin.register(models.Banner)
@@ -33,11 +34,14 @@ class HoraireAdmin(admin.ModelAdmin):
 
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('image','date_add', 'date_update', 'status')
+    list_display = ('imagebanner','date_add', 'date_update', 'status')
+
+    def imagebanner(self,obj):
+        return mark_safe(f'<img src="{obj.image.url}" style=" width: 100px; height: 100px">')
 
 @admin.register(models.Website)
 class WebsiteAdmin(admin.ModelAdmin):
-    list_display = ('titre_siteweb','siteweb', 'adresse', 'phone', 'email','date_add', 'date_update', 'status')
+    list_display = ('titre_siteweb','siteweb', 'adresse', 'phone', 'email','website','date_add', 'date_update', 'status')
 
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):

@@ -28,8 +28,8 @@ class Conseil(Convention):
     description = models.TextField()
 
     class Meta:
-        verbose_name = 'Service'
-        verbose_name_plural = 'Services'
+        verbose_name = 'conseil'
+        verbose_name_plural = 'conseils'
 
     def __str__(self):
         return self.titre

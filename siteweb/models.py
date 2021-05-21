@@ -13,7 +13,7 @@ class Convention(models.Model):
 
 
 class Banner(Convention):
-    images = models.ImageField()
+    images = models.ImageField(upload_to= 'images_banner')
     titre = models.CharField(max_length=250)
     sous_titre = models.CharField(max_length= 250)
     message = models.CharField(max_length=250)
@@ -52,6 +52,10 @@ class Option(Convention):
 
 class Newsletter(Convention):
     email = models.EmailField()
+    date_add = models.DateTimeField(auto_now=True)
+    date_update = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=True)
+
 
     class Meta:
         verbose_name = 'Newsletter'
@@ -90,14 +94,12 @@ class Image(Convention):
     class Meta:
         verbose_name = 'Image'
         verbose_name_plural = 'Images'
-
-    def __str__(self):
-        return self.image
+        
 
 class Website(Convention):
-    titre_siteweb = models.CharField(max_length=50)
-    siteweb = models.CharField(max_length=50)
-    adresse = models.CharField(max_length=50)
+    titre_siteweb = models.CharField(max_length=100)
+    siteweb = models.CharField(max_length=100)
+    adresse = models.CharField(max_length=100)
     phone = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     copyright = models.CharField(max_length=200)
@@ -105,8 +107,9 @@ class Website(Convention):
     vocation = models.TextField()
     titre_services = models.CharField(max_length=200)
     description_service = models.TextField()
-    titre_testimonial = models.CharField(max_length=50)
+    titre_testimonial = models.CharField(max_length=100)
     titre_prestation = models.CharField(max_length=50)
+    website = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Website'

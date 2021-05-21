@@ -3,80 +3,64 @@
 {% block content %}
 
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('{% static 'images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('{{banners.images.url}}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           <div class="col-md-6 ftco-animate">
-          	<h2 class="subheading">Welcome to Lawn care</h2>
-          	<h1>Lawn care for everyone </h1>
-            <p class="mb-4">Let us work on your yard</p>
+          	<h2 class="subheading">{{banners.message}}</h2>
+          	<h1>{{banners.titre}}</h1>
+            <p class="mb-4">{{banners.sous_titre}}</p>
             <p><a href="#" class="btn btn-primary mr-md-4 py-2 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
           </div>
         </div>
       </div>
     </div>
-
+	
     <section class="ftco-section ftco-no-pt">
     	<div class="container">
+		
     		<div class="row">
     			<div class="col-lg-3 py-5 order-md-last">
 	          <div class="heading-section ftco-animate">
 	          	<span class="subheading">Services</span>
-	            <h2 class="mb-4">Lawn Services</h2>
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your.</p>
+	            <h2 class="mb-4">{{websites.titre_services}}</h2>
+	            <p>{{websites.description_service}}</p>
 	            <p><a href="#" class="btn btn-primary py-3 px-4">Get a Quote</a></p>
 	          </div>
     			</div>
+				
     			<div class="col-lg-9 services-wrap px-4 pt-5">
+					
     				<div class="row pt-md-3">
+					{% for service in services %}
     					<div class="col-md-4 d-flex align-items-stretch">
-		    				<div class="services text-center">
-		    					<div class="icon d-flex justify-content-center align-items-center">
-		    						<span class="flaticon-fence"></span>
+						<div class="services text-center">
+							<div class="icon d-flex justify-content-center align-items-center">
+		    						<span class="{{service.icone}}"></span>
 		    					</div>
 		    					<div class="text">
-		    						<h3>Garden Care</h3>
-		    						<p>Seeking justice in the world is a sed significant emotional and investment when we follow this call.</p>
+		    						<h3>{{service.titre}}</h3>
+		    						<p>{{service.description}}</p>
 		    					</div>
 		    					<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
 		    				</div>
-		    			</div>
-		    			<div class="col-md-4 d-flex align-items-stretch">
-		    				<div class="services text-center">
-		    					<div class="icon d-flex justify-content-center align-items-center">
-		    						<span class="flaticon-lawn-mower"></span>
-		    					</div>
-		    					<div class="text">
-		    						<h3>Lawn mowing</h3>
-		    						<p>Seeking justice in the world is a sed significant emotional and investment when we follow this call.</p>
-		    					</div>
-		    					<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
-		    				</div>
-		    			</div>
-		    			<div class="col-md-4 d-flex align-items-stretch">
-		    				<div class="services text-center">
-		    					<div class="icon d-flex justify-content-center align-items-center">
-		    						<span class="flaticon-natural-resources"></span>
-		    					</div>
-		    					<div class="text">
-		    						<h3>Lawn care</h3>
-		    						<p>Seeking justice in the world is a sed significant emotional and investment when we follow this call.</p>
-		    					</div>
-		    					<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
-		    				</div>
-		    			</div>
-    				</div>
+						</div>
+						{% endfor %}
+					</div>
+					
     			</div>
+				
     		</div>
     	</div>
+		
     </section>
    	
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
     	<div class="container">
     		<div class="row d-flex">
     			<div class="col-md-6 d-flex">
-    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url({% static 'images/about.jpg' %});">
+    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end" style="background-image:url({{abouts.images.url}});">
     					<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
     						<span class="icon-play"></span>
     					</a>
@@ -85,25 +69,16 @@
     			<div class="col-md-6 pl-md-5">
     				<div class="row justify-content-start py-5">
 		          <div class="col-md-12 heading-section ftco-animate">
-		          	<span class="subheading">Welcome to Lawn Care</span>
-		            <h2 class="mb-4">Welcome to Lawn Care Company</h2>
-		            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+		          	<span class="subheading">{{banners.message}}</span>
+		            <h2 class="mb-4">{{abouts.titre}}</h2>
+		            <p>{{abouts.description}}</p>
 		            <div class="services-wrap">
-		            	<a href="#" class="services-list">Gutter cleaning
+						{% for option in options %}
+		            	<a href="#" class="services-list"> {{option.titre | safe}}
 		            		<div class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></div>
 		            	</a>
-		            	<a href="#" class="services-list">Organinc fertilization and weed control
-		            		<div class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></div>
-		            	</a>
-		            	<a href="#" class="services-list">Compost top dressing &amp; compost tea application
-		            		<div class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></div>
-		            	</a>
-		            	<a href="#" class="services-list">New lawn installation
-		            		<div class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></div>
-		            	</a>
-		            	<a href="#" class="services-list">Mulch and other services available
-		            		<div class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></div>
-		            	</a>
+						{% endfor %}
+		            	
 		            </div>
 		          </div>
 		        </div>
@@ -123,46 +98,20 @@
         <div class="row">
         	<div class="col-md-12">
         		<div class="carousel-seasonal owl-carousel ftco-owl">
+			{% for conseil in conseils %}
               <div class="item">
               	<div class="wrap">
-			        		<div class="seasonal img d-flex align-items-center justify-content-center" style="background-image: url({% static 'images/seasonal-1.jpg' %});">
+			        		<div class="seasonal img d-flex align-items-center justify-content-center" style="background-image: url({{conseil.image.url}});">
 			        		</div>
 			        		<div class="text text-center px-4">
-		        				<h3><a href="#">Spring</a></h3>
-		        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+		        				<h3><a href="#">{{conseil.titre}}</a></h3>
+		        				<p>{{conseil.description}}</p>
 		        			</div>
 		        		</div>
+				
               </div>
-              <div class="item">
-              	<div class="wrap">
-			        		<div class="seasonal img d-flex align-items-center justify-content-center" style="background-image: url({% static 'images/seasonal-2.jpg' %});">
-			        		</div>
-			        		<div class="text text-center px-4">
-		        				<h3><a href="#">Summer</a></h3>
-		        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-		        			</div>
-		        		</div>
-              </div>
-              <div class="item">
-              	<div class="wrap">
-			        		<div class="seasonal img d-flex align-items-center justify-content-center" style="background-image: url({% static 'images/seasonal-3.jpg' %});">
-			        		</div>
-			        		<div class="text text-center px-4">
-		        				<h3><a href="#">Winter</a></h3>
-		        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-		        			</div>
-		        		</div>
-              </div>
-              <div class="item">
-              	<div class="wrap">
-			        		<div class="seasonal img d-flex align-items-center justify-content-center" style="background-image: url({% static 'images/seasonal-4.jpg' %});">
-			        		</div>
-			        		<div class="text text-center px-4">
-		        				<h3><a href="#">Fall</a></h3>
-		        				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-		        			</div>
-		        		</div>
-              </div>
+			  {% endfor %}
+              
             </div>
         	</div>
         </div>
@@ -177,7 +126,7 @@
 						<p>Do you have any comments or questions about the products then contact us.</p>
 					</div>
 					<div class="col-md-5 text-md-right">
-						<span class="contact-number">+00(123) 456-78-09</span>
+						<span class="contact-number">{{websites.phone}}</span>
 					</div>
 				</div>
 			</div>
@@ -196,77 +145,24 @@
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel ftco-owl">
+					{% for testimonial in Testimonials %}
               <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'images/person_1.jpg' %})"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'images/person_2.jpg' %})"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'images/person_3.jpg' %})"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'images/person_1.jpg' %})"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url({% static 'images/person_2.jpg' %})"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                	<div class="testimony-wrap py-4">
+                  		<div class="text">
+                    		<p class="mb-4">{{testimonial.temoignage}}</p>
+                    		<div class="d-flex align-items-center">
+                    			<div class="user-img" style="background-image: url({{testimonial.image.url}})"></div>
+                    				<div class="pl-3">
+		                    		<p class="name">{{testimonial.nom}}t</p>
+		                    		<span class="position">{{testimonial.travail}}</span>
+		                  			</div>
+	                  		</div>
+                  		</div>
+                	</div>
+              	</div>
+					{% endfor %}
+            	</div>
+			</div>
           </div>
         </div>
       </div>
@@ -277,96 +173,38 @@
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
           	<span class="subheading">Our Blog</span>
-            <h2>Recent Blog</h2>
+            <h2>{{websites.titre_prestation}}</h2>
           </div>
         </div>
+		
         <div class="row d-flex">
+		{% for prestation in Prestations %}
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('{% static 'images/image_1.jpg' %}');">
+              <a href="{% url 'blog-single' %}" class="block-20" style="background-image: url('{{prestation.image.url}}');">
               </a>
               <div class="text p-4 float-right d-block">
               	<div class="topper d-flex align-items-center">
               		<div class="one py-2 pl-3 pr-1 align-self-stretch">
-              			<span class="day">24</span>
+              			<span class="day">{{prestation.date_add | date:'d'}}</span>
               		</div>
               		<div class="two pl-0 pr-3 py-2 align-self-stretch">
-              			<span class="yr">2020</span>
-              			<span class="mos">January</span>
+              			<span class="yr">{{prestation.date_add | date:'Y'}}</span>
+              			<span class="mos">{{prestation.date_add | date:'M'}}</span>
               		</div>
               	</div>
-              	<h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              	<h3 class="heading mb-0"><a href="#">{{prestation.titre}}</a></h3>
+                <p>{{prestation.description_titre| truncatewords:25}}</p>
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('{% static 'images/image_2.jpg' %}');">
-              </a>
-              <div class="text p-4 float-right d-block">
-              	<div class="topper d-flex align-items-center">
-              		<div class="one py-2 pl-3 pr-1 align-self-stretch">
-              			<span class="day">24</span>
-              		</div>
-              		<div class="two pl-0 pr-3 py-2 align-self-stretch">
-              			<span class="yr">2020</span>
-              			<span class="mos">January</span>
-              		</div>
-              	</div>
-              	<h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('{% static 'images/image_3.jpg' %}');">
-              </a>
-              <div class="text p-4 float-right d-block">
-              	<div class="topper d-flex align-items-center">
-              		<div class="one py-2 pl-3 pr-1 align-self-stretch">
-              			<span class="day">24</span>
-              		</div>
-              		<div class="two pl-0 pr-3 py-2 align-self-stretch">
-              			<span class="yr">2020</span>
-              			<span class="mos">January</span>
-              		</div>
-              	</div>
-              	<h3 class="heading mb-0"><a href="#">All you want to know about industrial laws</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>
-          </div>
+		  {% endfor %}
+          
         </div>
       </div>
     </section>
 		
-
-    <section class="ftco-section ftco-no-pt ftco-no-pb bg-primary">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-        	<div class="col-lg-8 py-4">
-        		<div class="row">
-		          <div class="col-md-6 ftco-animate d-flex align-items-center">
-		            <h2 class="mb-0" style="color:white; font-size: 24px;">Subcribe to our Newsletter</h2>
-		          </div>
-		          <div class="col-md-6 d-flex align-items-center">
-		            <form action="#" class="subscribe-form">
-		              <div class="form-group d-flex">
-		                <input type="text" class="form-control" placeholder="Enter email address">
-		                <input type="submit" value="Subscribe" class="submit px-3">
-		              </div>
-		            </form>
-		          </div>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
 {% endblock  %}
     
 
